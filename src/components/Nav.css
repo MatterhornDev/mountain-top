@@ -1,31 +1,31 @@
-ul {
+.nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-li {
+.nav-item {
   float: left;
   padding: 8px 12px;
 }
 
-li:first-child {
+.nav-item:first-child {
   padding-left: 0px;
 }
 
-li a {
+.nav-link {
   display: block;
   text-align: center;
   text-decoration: none;
   color: #3F4C6A;
 }
 
-li a:hover {
+.nav-link:hover {
   color: #F47EBF;
   border-bottom: solid 1px #F47EBF;
 }
 
-li a.active {
+.active {
   color: #F47EBF;
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, Link, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import GatsbyImage from 'gatsby-image'
 import { navigate } from '@reach/router';
 
 const Body = () => {
@@ -59,7 +59,7 @@ const Body = () => {
                     navigate(frontmatter.path)
                   }}
                 >
-                  <Img fixed={frontmatter.featuredImage.childImageSharp.fixed} />
+                  <GatsbyImage fixed={frontmatter.featuredImage.childImageSharp.fixed} />
                   <div style={{
                     display: 'flex',
                     flexDirection: 'column',

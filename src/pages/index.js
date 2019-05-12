@@ -7,7 +7,8 @@ const Layout = () => {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      paddingTop: '15px'
     }}>
       <Header />
       <Body />

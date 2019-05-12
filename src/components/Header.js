@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import logo from '../images/Logo.png'
 import Nav from './Nav'
+import GatsbyImage from 'gatsby-image';
 
 const Header = () => {
   return (
@@ -14,6 +15,15 @@ const Header = () => {
               description
             }
           }
+          file (
+            relativePath:{eq: "Logo.png"}
+          ) {
+            childImageSharp {
+              fixed(width: 135, height:150) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
         }
       `}
       render={data => {
@@ -21,23 +31,19 @@ const Header = () => {
         return (
           <div style={{
             margin: 'auto',
+            marginBottom: '20px',
             minWidth: '575px',
             display: 'flex',
             flexDirection: 'row'
           }}>
-            <img
-              src={logo}
-              alt="Matterhorn Logo"
-              style={{
-                width: 150,
-                height: 150,
-              }}
-            />
+            <GatsbyImage fixed={data.file.childImageSharp.fixed} />
             <div style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'left',
-              color: '#3F4C6A'
+              color: '#3F4C6A',
+              borderBottom: '3px solid #3F4C6A',
+              marginLeft: '15px'
             }}>
               <h1 style={{marginBottom: 0}}>{title}</h1>
               <p style={{
