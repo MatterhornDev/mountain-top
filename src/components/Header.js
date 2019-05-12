@@ -20,28 +20,30 @@ const Header = () => {
         const { title, description } = data.site.siteMetadata
         return (
           <div style={{
+            margin: 'auto',
+            minWidth: '575px',
             display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'left'
+            flexDirection: 'row'
           }}>
             <img
               src={logo}
               alt="Matterhorn Logo"
               style={{
                 width: 150,
-                height: 150
+                height: 150,
               }}
             />
             <div style={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'left'
+              alignItems: 'left',
+              color: '#3F4C6A'
             }}>
               <h1 style={{marginBottom: 0}}>{title}</h1>
               <p style={{
                 marginTop: 0,
-                marginBottom: 2,
-                opacity: 0.5
+                marginBottom: '2px',
+                opacity: 0.7
               }}>
                 {description}
               </p>

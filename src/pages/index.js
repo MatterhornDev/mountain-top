@@ -4,10 +4,14 @@ import Body from '../components/Body'
 
 const Layout = () => {
   return (
-    <React.Fragment>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center'
+    }}>
       <Header />
       <Body />
-    </React.Fragment>
+    </div>
   )
 }
 
