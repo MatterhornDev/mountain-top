@@ -1,30 +1,11 @@
-import React from "react"
+import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-
-const TitleAndDesc = ({ data }) => {
-  const { title, description } = data.site.siteMetadata
-
-  return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      fontFamily: 'avenir'
-    }}>
-      <h2 style={{marginBottom: 0}}>{title}</h2>
-      <p style={{
-        marginTop: 0,
-        opacity: 0.5
-      }}>
-        {description}
-      </p>
-    </div>
-  )
-}
+import logo from '../images/Logo.png'
+import Nav from './Nav'
 
 const Header = () => {
   return (
-    <StaticQuery 
+    <StaticQuery
       query={graphql`
         query {
           site {
@@ -35,7 +16,40 @@ const Header = () => {
           }
         }
       `}
-      render={data => <TitleAndDesc data={data}/>}
+      render={data => {
+        const { title, description } = data.site.siteMetadata
+        return (
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'left'
+          }}>
+            <img
+              src={logo}
+              alt="Matterhorn Logo"
+              style={{
+                width: 150,
+                height: 150
+              }}
+            />
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'left'
+            }}>
+              <h1 style={{marginBottom: 0}}>{title}</h1>
+              <p style={{
+                marginTop: 0,
+                marginBottom: 2,
+                opacity: 0.5
+              }}>
+                {description}
+              </p>
+              <Nav />
+            </div>
+          </div>
+        )
+      }}
     />
   )
 }

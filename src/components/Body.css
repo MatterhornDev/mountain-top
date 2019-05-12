@@ -1,0 +1,44 @@
+.bodyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 150px;
+}
+
+.bodyPostCard {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #3F4C6A;
+  max-width: 450px;
+  max-height: 125px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bodyPostCard:first-of-type {
+  margin-top: 0;
+}
+
+.bodyPostCard:last-of-type {
+  margin-bottom: 0;
+}
+
+.bodyPostCard img {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.bodyPostCard-Content {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding-left: 3px;
+}
+
+.bodyPostCard-Content h2 {
+  margin-top: 3px;
+  margin-bottom: 0;
+  color: #3F4C6A;
+}
