@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, Link, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 import GatsbyImage from 'gatsby-image'
 import { navigate } from '@reach/router';
 
@@ -56,7 +56,7 @@ const Body = () => {
                     overflow: 'hidden'
                   }}
                   onClick={() => {
-                    navigate(frontmatter.path)
+                    navigate(`frontmatter.path`)
                   }}
                 >
                   <GatsbyImage fixed={frontmatter.featuredImage.childImageSharp.fixed} />

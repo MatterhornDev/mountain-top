@@ -1,7 +1,7 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import Header from './../components/Header'
-const AllTagsTemplate = ({data, pageContext}) => {
+const AllTagsTemplate = ({pageContext}) => {
   const { tags } = pageContext
   return (
     <div>

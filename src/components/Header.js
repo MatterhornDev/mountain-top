@@ -1,10 +1,9 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import logo from '../images/Logo.png'
 import Nav from './Nav'
 import GatsbyImage from 'gatsby-image';
 
-const Header = () => {
+const Header = ({ showLogo = true }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -34,9 +33,10 @@ const Header = () => {
             marginBottom: '20px',
             minWidth: '575px',
             display: 'flex',
-            flexDirection: 'row'
+            flexDirection: 'row',
+            height: '150px'
           }}>
-            <GatsbyImage fixed={data.file.childImageSharp.fixed} />
+            {showLogo && <GatsbyImage fixed={data.file.childImageSharp.fixed} />}
             <div style={{
               display: 'flex',
               flexDirection: 'column',

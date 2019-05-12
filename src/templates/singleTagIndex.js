@@ -1,7 +1,7 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 
-const SingleTagTemplate = ({data, pageContext}) => {
+const SingleTagTemplate = ({pageContext}) => {
   const {posts, tagName} = pageContext
 
   return (
