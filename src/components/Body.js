@@ -18,7 +18,6 @@ const Body = () => {
                 }
                 frontmatter {
                   title
-                  path
                   date
                   excerpt
                   featuredImage {
