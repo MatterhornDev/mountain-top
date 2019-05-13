@@ -2,34 +2,31 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Header from './../components/Header'
 
-const Template = ({ data , pageContext }) => {
-  const { next, prev } = pageContext
-  const { markdownRemark } = data
-  const title = markdownRemark.frontmatter.title
-  const html = markdownRemark.html
+const Template = ({ data }) => {
   return (
     <div style={{
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
+      alignItems: 'center',
       paddingTop: '15px'
     }}>
       <Header showLogo={false}/>
-      <h2>{title}</h2>
       <div
-        className='blogpost'
-        dangerouslySetInnerHTML={{__html: html}}
+        style={{
+          maxWidth: '700px',
+          marginLeft: '10px',
+          marginRight: '10px'
+        }}
+        dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}
       />
-
-      { next && <Link to={next.frontmatter.path}>Next</Link> }
-      { prev && <Link to={prev.frontmatter.path}>Previous</Link> }
     </div>
   )
 }
 
 export const query = graphql`
-  query($pathSlug: String!) {
-    markdownRemark(frontmatter: { path: {eq: $pathSlug} }) {
+  query($slug: String!) {
+    markdownRemark(fields: {slug: {eq: $slug }}) {
       html
       frontmatter {
         title

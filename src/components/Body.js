@@ -13,6 +13,9 @@ const Body = () => {
           ){
             edges {
               node {
+                fields {
+                  slug
+                }
                 frontmatter {
                   title
                   path
@@ -41,10 +44,10 @@ const Body = () => {
             flexDirection: 'column'
           }}>
             {edges.map(edge => {
-              const {frontmatter} = edge.node
+              const {fields, frontmatter} = edge.node
               return (
                 <div
-                  key={frontmatter.path}
+                  key={fields.slug}
                   style={{
                     minWidth: '575px',
                     display: 'flex',
@@ -56,7 +59,7 @@ const Body = () => {
                     overflow: 'hidden'
                   }}
                   onClick={() => {
-                    navigate(`frontmatter.path`)
+                    navigate(`${fields.slug}`)
                   }}
                 >
                   <GatsbyImage fixed={frontmatter.featuredImage.childImageSharp.fixed} />

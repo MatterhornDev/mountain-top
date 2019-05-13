@@ -1,5 +1,4 @@
 ---
-path: "/donuts-are-awesome"
 date: "2019-05-10"
 title: "Donuts are Awesome"
 tags: ['donuts', 'fake', 'abc']
