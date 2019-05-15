@@ -3,7 +3,7 @@ const { createFilePath } = require('gatsby-source-filesystem')
 
 const createTagPages = (createPage, posts, tagDescriptions) => {
   const allTagsIndexTemplate = path.resolve('src/templates/allTagsIndex.js')
-  // const singleTagIndexTemplate = path.resolve('src/templates/singleTagIndex.js')
+  const singleTagIndexTemplate = path.resolve('src/templates/singleTagIndex.js')
 
   const postsByTag = {}
 
@@ -30,18 +30,19 @@ const createTagPages = (createPage, posts, tagDescriptions) => {
     }
   })
 
-  // tags.forEach(tagName => {
-  //   const posts = postsByTag[tagName]
+  tags.forEach(tagName => {
+    const posts = postsByTag[tagName]
 
-  //   createPage({
-  //     path: `/tags/${tagName}`,
-  //     component: singleTagIndexTemplate,
-  //     context: {
-  //       posts,
-  //       tagName
-  //     }
-  //   })
-  // })
+    createPage({
+      path: `/tags/${tagName}`,
+      component: singleTagIndexTemplate,
+      context: {
+        posts,
+        tag: tagName,
+        tagDescription: tagDescriptions[tagName]
+      }
+    })
+  })
 }
 
 // exports.createPages = (({graphql, actions}) => {
@@ -101,13 +102,18 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        sort: {order: DESC, fields: [frontmatter___date]}
+      ) {
         edges {
           node {
             fields {
               slug
             }
             frontmatter {
+              title
+              date
+              excerpt
               tags
             }
           }
@@ -127,7 +133,9 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result => {
-
+      if (result.errors) {
+        throw result.errors
+      }
       const posts = result.data.allMarkdownRemark.edges
       const tagDescriptions = result.data.site.siteMetadata.tags
 

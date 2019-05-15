@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import GatsbyImage from 'gatsby-image'
-import { navigate } from '@reach/router';
+import { navigate } from '@reach/router'
 
 const Posts = () => {
   return (
