@@ -1,23 +1,33 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Header from './../components/Header'
+import Layout from '../components/Layout'
+
 const AllTagsTemplate = ({pageContext}) => {
-  const { tags } = pageContext
+  const { tags, tagDescriptions } = pageContext
   return (
-    <div>
-      <Header />
-      <div>
-        <ul>
+    <Layout>
+      <div style={{
+        margin: 'auto',
+        minWidth: '575px',
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
+        <ul style={{
+          listStyle: 'none'
+        }}>
           {tags.map((tag, index) => {
             return (
-              <li key={index}>
+              <li
+                key={index}
+              >
                 <Link to={`tags/${tag}`}>{tag}</Link>
+                <p>{tagDescriptions[tag]}</p>
               </li>
             )
           })}
         </ul>
       </div>
-    </div>
+    </Layout>
   )
 }
 

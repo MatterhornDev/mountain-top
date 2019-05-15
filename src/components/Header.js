@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Nav from './Nav'
-import GatsbyImage from 'gatsby-image';
+import Logo from './../images/Logo.png'
 
 const Header = ({ showLogo = true }) => {
   return (
@@ -12,15 +12,6 @@ const Header = ({ showLogo = true }) => {
             siteMetadata {
               title
               description
-            }
-          }
-          file (
-            relativePath:{eq: "Logo.png"}
-          ) {
-            childImageSharp {
-              fixed(width: 135, height:150) {
-                ...GatsbyImageSharpFixed
-              }
             }
           }
         }
@@ -36,7 +27,7 @@ const Header = ({ showLogo = true }) => {
             flexDirection: 'row',
             height: '150px'
           }}>
-            {showLogo && <GatsbyImage fixed={data.file.childImageSharp.fixed} />}
+            {showLogo && <img src={Logo} alt='Matterhorn Logo' width={135} height={150}/>}
             <div style={{
               display: 'flex',
               flexDirection: 'column',

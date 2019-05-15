@@ -7,7 +7,15 @@
 module.exports = {
   siteMetadata: {
     title: 'Mountain Top',
-    description: 'The official blog for the Matterhorn developer ecosystem'
+    description: 'The official blog for the Matterhorn developer ecosystem',
+    tags: {
+      "abc": "An example description for abc tag. Its the first tag!",
+      "def": "Another tag description. Let me tell you everything about it.",
+      "donuts": "Deliciousness in every bite.",
+      "fake": "I don't exist",
+      "kittens": "So cute; be careful of their claws!",
+      "puppies": "Everyone's best friend. Don't mess with them, they have a big bark."
+    }
   },
   plugins: [
     `gatsby-plugin-sharp`,
@@ -19,7 +27,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 600,
+              maxWidth: 700,
               quality: 100
             }
           }

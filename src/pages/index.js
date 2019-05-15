@@ -1,19 +1,13 @@
 import React from 'react'
-import Header from '../components/Header'
-import Body from '../components/Body'
+import Posts from '../components/Posts'
+import Layout from '../components/Layout'
 
-const Layout = () => {
+const App = () => {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      paddingTop: '15px'
-    }}>
-      <Header />
-      <Body />
-    </div>
+    <Layout>
+      <Posts />
+    </Layout>
   )
 }
 
-export default Layout
+export default App

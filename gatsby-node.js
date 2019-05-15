@@ -1,47 +1,48 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-// const createTagPages = (createPage, posts) => {
-//   const allTagsIndexTemplate = path.resolve('src/templates/allTagsIndex.js')
-//   const singleTagIndexTemplate = path.resolve('src/templates/singleTagIndex.js')
+const createTagPages = (createPage, posts, tagDescriptions) => {
+  const allTagsIndexTemplate = path.resolve('src/templates/allTagsIndex.js')
+  // const singleTagIndexTemplate = path.resolve('src/templates/singleTagIndex.js')
 
-//   const postsByTag = {}
+  const postsByTag = {}
 
-//   posts.forEach(({node}) => {
-//     if (node.frontmatter.tags) {
-//       node.frontmatter.tags.forEach(tag => {
-//         if (!postsByTag[tag]) {
-//           postsByTag[tag] = []
-//         }
+  posts.forEach(({node}) => {
+    if (node.frontmatter.tags) {
+      node.frontmatter.tags.forEach(tag => {
+        if (!postsByTag[tag]) {
+          postsByTag[tag] = []
+        }
 
-//         postsByTag[tag].push(node)
-//       })
-//     }
-//   })
+        postsByTag[tag].push(node)
+      })
+    }
+  })
 
-//   const tags = Object.keys(postsByTag)
+  const tags = Object.keys(postsByTag)
 
-//   createPage({
-//     path: '/tags',
-//     component: allTagsIndexTemplate,
-//     context: {
-//       tags: tags.sort()
-//     }
-//   })
+  createPage({
+    path: '/tags',
+    component: allTagsIndexTemplate,
+    context: {
+      tags: tags.sort(),
+      tagDescriptions
+    }
+  })
 
-//   tags.forEach(tagName => {
-//     const posts = postsByTag[tagName]
+  // tags.forEach(tagName => {
+  //   const posts = postsByTag[tagName]
 
-//     createPage({
-//       path: `/tags/${tagName}`,
-//       component: singleTagIndexTemplate,
-//       context: {
-//         posts,
-//         tagName
-//       }
-//     })
-//   })
-// }
+  //   createPage({
+  //     path: `/tags/${tagName}`,
+  //     component: singleTagIndexTemplate,
+  //     context: {
+  //       posts,
+  //       tagName
+  //     }
+  //   })
+  // })
+}
 
 // exports.createPages = (({graphql, actions}) => {
 //   const { createPage } = actions
@@ -106,12 +107,33 @@ exports.createPages = ({ graphql, actions }) => {
             fields {
               slug
             }
+            frontmatter {
+              tags
+            }
+          }
+        }
+      }
+      site {
+        siteMetadata {
+          tags {
+            abc,
+            def,
+            donuts,
+            fake,
+            kittens,
+            puppies
           }
         }
       }
     }
   `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+
+      const posts = result.data.allMarkdownRemark.edges
+      const tagDescriptions = result.data.site.siteMetadata.tags
+
+      createTagPages(createPage, posts, tagDescriptions)
+
+      posts.forEach(({ node }) => {
         createPage({
           path: node.fields.slug,
           component: path.resolve(`./src/templates/blogPost.js`),

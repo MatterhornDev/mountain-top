@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import GatsbyImage from 'gatsby-image'
 import { navigate } from '@reach/router';
 
-const Body = () => {
+const Posts = () => {
   return (
     <StaticQuery
       query={graphql`
@@ -83,4 +83,4 @@ const Body = () => {
   )
 }
 
-export default Body
+export default Posts
