@@ -1,25 +1,9 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-const createTagPages = (createPage, posts, tagDescriptions) => {
+const createTagPages = (createPage, tags, tagDescriptions) => {
   const allTagsIndexTemplate = path.resolve('src/templates/allTagsIndex.js')
   const singleTagIndexTemplate = path.resolve('src/templates/singleTagIndex.js')
-
-  const postsByTag = {}
-
-  posts.forEach(({node}) => {
-    if (node.frontmatter.tags) {
-      node.frontmatter.tags.forEach(tag => {
-        if (!postsByTag[tag]) {
-          postsByTag[tag] = []
-        }
-
-        postsByTag[tag].push(node)
-      })
-    }
-  })
-
-  const tags = Object.keys(postsByTag)
 
   createPage({
     path: '/tags',
@@ -31,59 +15,16 @@ const createTagPages = (createPage, posts, tagDescriptions) => {
   })
 
   tags.forEach(tagName => {
-    const posts = postsByTag[tagName]
-
     createPage({
       path: `/tags/${tagName}`,
       component: singleTagIndexTemplate,
       context: {
-        posts,
         tag: tagName,
         tagDescription: tagDescriptions[tagName]
       }
     })
   })
 }
-
-// exports.createPages = (({graphql, actions}) => {
-//   const { createPage } = actions
-
-//   const blogPostTemplate = path.resolve('src/templates/blogPost.js')
-
-//   return graphql(`
-//     query {
-//       allMarkdownRemark (
-//         sort: {order: ASC, fields: [frontmatter___date]}
-//       ) {
-//         edges {
-//           node {
-//             frontmatter {
-//               path
-//               tags
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `).then(result => {
-//     const posts = result.data.allMarkdownRemark.edges
-
-//     createTagPages(createPage, posts)
-
-//     posts.forEach(({node}, index) => {
-//       const path = `posts${node.frontmatter.path}`
-//       createPage({
-//         path,
-//         component: blogPostTemplate,
-//         context: {
-//           pathSlug: path,
-//           prev: index === 0 ? null : posts[index - 1].node,
-//           next: index === (posts.length - 1) ? null : posts[index + 1].node
-//         }
-//       })
-//     })
-//   })
-// })
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -102,19 +43,11 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
     {
-      allMarkdownRemark(
-        sort: {order: DESC, fields: [frontmatter___date]}
-      ) {
+      allMarkdownRemark {
         edges {
           node {
             fields {
               slug
-            }
-            frontmatter {
-              title
-              date
-              excerpt
-              tags
             }
           }
         }
@@ -137,9 +70,10 @@ exports.createPages = ({ graphql, actions }) => {
         throw result.errors
       }
       const posts = result.data.allMarkdownRemark.edges
+      const tags = Object.keys(result.data.site.siteMetadata.tags)
       const tagDescriptions = result.data.site.siteMetadata.tags
 
-      createTagPages(createPage, posts, tagDescriptions)
+      createTagPages(createPage, tags, tagDescriptions)
 
       posts.forEach(({ node }) => {
         createPage({

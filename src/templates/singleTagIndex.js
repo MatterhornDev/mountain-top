@@ -1,10 +1,11 @@
 import React from 'react'
 import GatsbyImage from 'gatsby-image'
+import { graphql } from 'gatsby'
 import { navigate } from '@reach/router'
 import Layout from '../components/Layout'
 
 const SingleTagTemplate = ({data, pageContext}) => {
-  const {posts, tag, tagDescription} = pageContext
+  const {tag, tagDescription} = pageContext
 
   return (
     <Layout>
