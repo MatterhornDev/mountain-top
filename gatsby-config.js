@@ -9,12 +9,11 @@ module.exports = {
     title: 'Mountain Top',
     description: 'The official blog for the Matterhorn TypeScript developer ecosystem',
     tags: {
-      "abc": "An example description for abc tag. Its the first tag!",
-      "def": "Another tag description. Let me tell you everything about it.",
-      "donuts": "Deliciousness in every bite.",
-      "fake": "I don't exist",
-      "kittens": "So cute; be careful of their claws!",
-      "puppies": "Everyone's best friend. Don't mess with them, they have a big bark."
+      'typescript': 'A lot of things are tagged this. Learn more about Matterhorn\'s favorite topic', 
+      'linting': 'Its not all about formatting! Linting can help you write better code too.',
+      'eslint': 'The official TypeScript linter.', 
+      'prettier': 'This one is all about making formatting effortless as possible.',
+      'standard': 'Enough arguing over semicolons or not. Let Standard decide for you.'
     }
   },
   plugins: [
@@ -29,6 +28,13 @@ module.exports = {
             options: {
               maxWidth: 700,
               quality: 100
+            }
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              showLineNumbers: true,
+              noInlineHighlight: true
             }
           }
         ]

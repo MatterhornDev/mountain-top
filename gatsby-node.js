@@ -55,12 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
       site {
         siteMetadata {
           tags {
-            abc,
-            def,
-            donuts,
-            fake,
-            kittens,
-            puppies
+            typescript, linting, eslint, prettier, standard
           }
         }
       }

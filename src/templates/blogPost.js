@@ -11,7 +11,7 @@ const Template = ({ data }) => {
       alignItems: 'center',
       paddingTop: '15px'
     }}>
-      <Header showLogo={false}/>
+      <Header />
       <div
         style={{
           maxWidth: '700px',
