@@ -45,36 +45,44 @@ const Posts = () => {
             {edges.map(edge => {
               const {fields, frontmatter} = edge.node
               return (
-                <div
-                  key={fields.slug}
-                  style={{
-                    minWidth: '575px',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    border: '2px solid #F47EBF',
-                    marginTop: '5px',
-                    marginBottom: '5px',
-                    cursor: 'pointer',
-                    overflow: 'hidden'
-                  }}
-                  onClick={() => {
-                    navigate(`${fields.slug}`)
-                  }}
-                >
-                  <GatsbyImage fixed={frontmatter.featuredImage.childImageSharp.fixed} />
-                  <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    paddingLeft: '3px'
-                  }}>
-                    <h2 style={{
-                      marginTop: '3px',
-                      marginBottom: 0,
-                      color: '#3F4C6A'
-                    }}>{frontmatter.title}</h2>
-                    <p>{frontmatter.excerpt}</p>
+                <React.Fragment>
+                  <hr
+                    key={`hr-${fields.slug}`}
+                    style={{
+                      width: '100%',
+                      border: '1px solid rgb(244, 126, 191)'
+                    }}
+                  />
+                  <div
+                    key={fields.slug}
+                    style={{
+                      minWidth: '575px',
+                      display: 'flex',
+                      flexDirection: 'row',
+                      marginTop: '30px',
+                      marginBottom: '30px',
+                      cursor: 'pointer',
+                      overflow: 'hidden'
+                    }}
+                    onClick={() => {
+                      navigate(`${fields.slug}`)
+                    }}
+                  >
+                    <GatsbyImage fixed={frontmatter.featuredImage.childImageSharp.fixed} />
+                    <div style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      paddingLeft: '7px'
+                    }}>
+                      <h2 style={{
+                        marginTop: '3px',
+                        marginBottom: 0,
+                        color: '#3F4C6A'
+                      }}>{frontmatter.title}</h2>
+                      <p>{frontmatter.excerpt}</p>
+                    </div>
                   </div>
-                </div>
+                </React.Fragment>
               )
             })}
           </div>

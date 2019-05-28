@@ -7,7 +7,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Mountain Top',
-    description: 'The official blog for the Matterhorn developer ecosystem',
+    description: 'The official blog for the Matterhorn TypeScript developer ecosystem',
     tags: {
       "abc": "An example description for abc tag. Its the first tag!",
       "def": "Another tag description. Let me tell you everything about it.",

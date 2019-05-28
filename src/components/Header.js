@@ -33,7 +33,6 @@ const Header = ({ showLogo = true }) => {
               flexDirection: 'column',
               alignItems: 'left',
               color: '#3F4C6A',
-              borderBottom: '3px solid #3F4C6A',
               marginLeft: '15px'
             }}>
               <h1 style={{marginBottom: 0}}>{title}</h1>
@@ -44,6 +43,10 @@ const Header = ({ showLogo = true }) => {
               }}>
                 {description}
               </p>
+              <hr style={{
+                width: '100%',
+                border: '2px solid #3F4C6A'
+              }}/>
               <Nav />
             </div>
           </div>
