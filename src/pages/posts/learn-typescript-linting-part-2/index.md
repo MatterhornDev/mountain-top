@@ -12,7 +12,7 @@ Written by: Ethan Arrowood
 
 ## Integrating Standard and Prettier
 
-This part of the guide will build off of the [ESLint](https://eslint.org/) and [TypeScript](https://www.typescriptlang.org/) configuration from [Part 1](./learn-typescript-linting-part-1.md). This guide will show you how to integrate the popular styling formatters [Standard](https://standardjs.com/) and [Prettier](https://prettier.io/). Make use of the table of contents and the `[toc]` shortcuts to better navigate this article.
+This part of the guide will build off of the [ESLint](https://eslint.org/) and [TypeScript](https://www.typescriptlang.org/) configuration from [Part 1](/posts/learn-typescript-linting-part-1). This guide will show you how to integrate the popular styling formatters [Standard](https://standardjs.com/) and [Prettier](https://prettier.io/). Make use of the table of contents and the `[toc]` shortcuts to better navigate this article.
 
 As a reminder, this guide comes with an accompanying GitHub repo so you can follow along. Checkout [`learn-typescript-linting`](https://github.com/MatterhornDev/learn-typescript-linting) and use the following commands to run it locally:
 
@@ -23,9 +23,9 @@ npm install
 ```
 
 The repository comes with multiple branches for different points in the guide.
-- [`init`](https://github.com/MatterhornDev/learn-typescript-linting/tree/init): a baseline repo without ESLint installed so you can follow along ([part 1 section 2](./learn-typescript-linting-part-1.md#2-adding-eslint))
-- [`master`](https://github.com/MatterhornDev/learn-typescript-linting): a complete example of TypeScript with ESLint ([part 1 section 2](./learn-typescript-linting-part-1.md#2-adding-eslint))
-- [`unused-variable`](https://github.com/MatterhornDev/learn-typescript-linting/tree/unused-variable): an example of a common TypeScript + ESLint error ([part 1 section 2.9](./learn-typescript-linting-part-1.md#29-fixing-unused-variable-definition-error-from-type-import))
+- [`init`](https://github.com/MatterhornDev/learn-typescript-linting/tree/init): a baseline repo without ESLint installed so you can follow along ([part 1 section 2](/posts/learn-typescript-linting-part-1#2-adding-eslint))
+- [`master`](https://github.com/MatterhornDev/learn-typescript-linting): a complete example of TypeScript with ESLint ([part 1 section 2](/posts/learn-typescript-linting-part-1#2-adding-eslint))
+- [`unused-variable`](https://github.com/MatterhornDev/learn-typescript-linting/tree/unused-variable): an example of a common TypeScript + ESLint error ([part 1 section 2.9](/posts/learn-typescript-linting-part-1#29-fixing-unused-variable-definition-error-from-type-import))
 - [`standard-style`](https://github.com/MatterhornDev/learn-typescript-linting/tree/standard-style): a complete example of with Standard ([part 2 section 1](#1-adding-standard-style-formatter))
 - [`prettier-style`](https://github.com/MatterhornDev/learn-typescript-linting/tree/prettier-style): a complete example of with Prettier ([part 2 section 2](#2-adding-prettier-style-formatter))
 
@@ -234,7 +234,7 @@ Run `npm run lint` and see how the linter now errors on all the semicolons added
 
 ---
 
-Thank you for reading! If you enjoyed this article follow [@MatterhornDev](https://twitter.com/matterhorndev) on Twitter for notifications on all future posts. This article was written by Ethan Arrowood, share you support on Twitter by following him ([@ArrowoodTech](https://twitter.com/ArrowoodTech)) and [sharing this article](https://twitter.com/intent/tweet?text=Learn%20TypeScript%20Linting%20by%20@ArrowoodTech&url=https://github.com/MatterhornDev/matterhorn-posts/blob/master/learn-typescript-linting-part-2.md&hashtags=typescript,eslint,standardjs,prettier&via=MatterhornDev&related=ArrowoodTech,MatterhornDev). 
+Thank you for reading! If you enjoyed this article follow [@MatterhornDev](https://twitter.com/matterhorndev) on Twitter for notifications on all future posts. This article was written by Ethan Arrowood, share you support on Twitter by following him ([@ArrowoodTech](https://twitter.com/ArrowoodTech)) and [sharing this article](https://twitter.com/intent/tweet?text=Learn%20TypeScript%20Linting%20by%20@ArrowoodTech&url=https://blog.matterhorn.dev/posts/learn-typescript-linting-part-2&hashtags=typescript,eslint,standardjs,prettier&via=MatterhornDev&related=ArrowoodTech,MatterhornDev). 
 
 Special thank you's to Julia Cotter and Colin Hennessey for their help on reviewing and proof reading this article. Find them on GitHub and LinkedIn below!
 - Julia Cotter: [GitHub](https://github.com/juliacotter) [LinkedIn](https://www.linkedin.com/in/julia-cotter/)
