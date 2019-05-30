@@ -12,20 +12,35 @@ Written by: Ethan Arrowood
 
 ## TypeScript and ESLint
 
-This guide will show you how to set up [ESLint](https://eslint.org/) with a [TypeScript](https://www.typescriptlang.org/) project. The guide is broken up into three sections. The first two are about setting up ESLint and configuring it to work with TypeScript. The last section contains additional context and a list of resources for those interested in learning more.
+This guide will show you how to set up [ESLint](https://eslint.org/) with a [TypeScript](https://www.typescriptlang.org/) project. The guide is broken up into three sections. The first two are about setting up ESLint and configuring it to work with TypeScript. The last section contains additional context and a list of resources for those interested in learning more. Make use of the table of contents and the `[toc]` shortcuts to better navigate this article. 
 
-[Part 2](https://blog.matterhorn.dev/posts/learn-typescript-linting-part-1/) of this guide covers integrating popular styling formatters [Standard](https://standardjs.com/) and [Prettier](https://prettier.io/).
+[Part 2](/posts/learn-typescript-linting-part-2) of this guide covers integrating popular styling formatters [Standard](https://standardjs.com/) and [Prettier](https://prettier.io/).
+
+### Table of Contents
+- [1 Getting Started](#1-getting-started)
+- [2 Adding ESLint](#2-adding-eslint)
+  - [2.1 Initializing .eslintrc](#21-initializing-eslintrc)
+    - [2.1.1 Specifying environments](#211-specifying-environments)
+    - [2.1.2 Specifying ecmaVersion](#212-specifying-ecmaVersion)
+  - [2.2 Creating ESLint npm script](#22-Creating-ESLint-npm-script)
+  - [2.3 Executing ESLint](#23-executing-eslint)
+  - [2.4 Fixing an ESLint warning](#24-fixing-an-eslint-warning)
+  - [2.5 Configuring ESLint](#25-configuring-eslint)
+  - [2.6 Additional ESLint rule configuration](#26-additional-eslint-rule-configuration)
+  - [2.7 Fixing unused variable definition error from type import](#27-fixing-unused-variable-definition-error-from-type-import)
+- [3 Additional Resources and Documentation](#3-additional-resources-and-documentation)
 
 ## 1 Getting Started
+[`[toc]`](#table-of-contents)
 
 Before starting this article, review the following prerequisite information:
-- Installed, stable version of [Node.js](https://nodejs.org/en/) and the accompanying version of [npm](https://www.npmjs.com/). At the time of writing/publishing this article this includes all stable Node.js versions in scope of: v8.x, v10.x, v11.x, or v12.x.
-- Installed, stable version of [git](https://git-scm.com/)
+- Installed, stable version of [`Node.js`](https://nodejs.org/en/) and the accompanying version of [`npm`](https://www.npmjs.com/). At the time of writing/publishing this article this includes all stable Node.js versions in scope of: v8.x, v10.x, v11.x, or v12.x.
+- Installed, stable version of [`git`](https://git-scm.com/)
 - A bash terminal. Mac and Linux users should use the default `Terminal` application. Windows users should use `Git Bash` or another bash emulator. The Window's Subsystem for Linux is also a great option. The commands used in the article are `bash` commands and are **not** verified to work on non-bash terminals such as Powershell.
 
-> **Note:** Developers without an existing TypeScript project should start here at section 1; developers with an existing project can skip ahead to section 2 Adding ESLint. This guide works best if you follow along with the GitHub repository.
+> **Note:** Developers without an existing TypeScript project should start here at section 1; developers with an existing project can skip ahead to section [2 Adding ESLint](#2-adding-eslint). This guide works best if you follow along with the GitHub repository.
 
-View the GitHub repository [learn-typescript-linting](https://github.com/MatterhornDev/learn-typescript-linting). Copy, paste and execute the following command to clone it to your machine:
+View the GitHub repository [`learn-typescript-linting`](https://github.com/MatterhornDev/learn-typescript-linting). Copy, paste and execute the following command to clone it to your machine:
 
 ```bash
 git clone https://github.com/MatterhornDev/learn-typescript-linting.git
@@ -35,11 +50,11 @@ npm install
 ```
 
 The repository comes with multiple branches for different points in the guide.
-- [init](https://github.com/MatterhornDev/learn-typescript-linting/tree/init): a baseline repo without ESLint installed so you can follow along (part 1 section 2)
-- [master](https://github.com/MatterhornDev/learn-typescript-linting): a complete example of TypeScript with ESLint (part 1 section 2)
-- [unused-variable](https://github.com/MatterhornDev/learn-typescript-linting/tree/unused-variable): an example of a common TypeScript + ESLint error (part 1 section 2.9)
-- [standard-style](https://github.com/MatterhornDev/learn-typescript-linting/tree/standard-style): a complete example of with Standard (part 2 section 1)
-- [prettier-style](https://github.com/MatterhornDev/learn-typescript-linting/tree/prettier-style): a complete example of with Prettier (part 2 section 2)
+- [`init`](https://github.com/MatterhornDev/learn-typescript-linting/tree/init): a baseline repo without ESLint installed so you can follow along ([part 1 section 2](#2-adding-eslint))
+- [`master`](https://github.com/MatterhornDev/learn-typescript-linting): a complete example of TypeScript with ESLint ([part 1 section 2](#2-adding-eslint))
+- [`unused-variable`](https://github.com/MatterhornDev/learn-typescript-linting/tree/unused-variable): an example of a common TypeScript + ESLint error ([part 1 section 2.9](#29-fixing-unused-variable-definition-error-from-type-import))
+- [`standard-style`](https://github.com/MatterhornDev/learn-typescript-linting/tree/standard-style): a complete example of with Standard ([part 2 section 1](/posts/learn-typescript-linting-part-2#1-adding-standard-style-formatter))
+- [`prettier-style`](https://github.com/MatterhornDev/learn-typescript-linting/tree/prettier-style): a complete example of with Prettier ([part 2 section 2](/posts/learn-typescript-linting-part-2#2-adding-prettier-style-formatter))
 
 The project comes with a single developer dependency, `typescript`, and two npm scripts, `compile` and `start`. The `compile` command is `tsc -p tsconfig.json`. The project is configured for `es5` in `strict` mode and includes all `.ts` files under the `src` directory. The compiled output can be found in the `lib` directory. The `start` command runs the compiled `.js` output via `node lib/index.js`. Try them out by running:
 
@@ -65,6 +80,7 @@ npm run start
 It is recommended you do not modify the `.ts` files as they are specifically set up to show off unique aspects of linting typescript projects.
 
 ## 2 Adding ESLint
+[`[toc]`](#table-of-contents)
 
 Install `eslint`, `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser` as developer dependencies. Initialize an empty eslint configuration file. I prefer to use `.json` for configuration files.
 
@@ -74,6 +90,7 @@ touch .eslintrc.json
 ```
 
 ### 2.1 Initializing .eslintrc
+[`[toc]`](#table-of-contents)
 
 Add the following to `.eslintrc.json`
 
@@ -92,23 +109,25 @@ Add the following to `.eslintrc.json`
 ```
 
 #### 2.1.1 Specifying environments
+[`[toc]`](#table-of-contents)
 
 The `env` object is used for defining global variables in a project that are not explicitly imported. A great example is the `console` object. This is considered globally available in both browser and Node.js environments. In the `learn-typescript-linting` example, the code will be executed in a Node.js terminal, thus the `node` attributes is enabled. Some other common attributes include `jest`, `mocha`, `amd`, `commonjs`, and `es6`. There is no easy way to know which attributes need to be enabled; it is recommended to consult [ESLint's Specifying Environments](https://eslint.org/docs/user-guide/configuring#specifying-environments) documentation to find out what each environment attribute provides.
 
 #### 2.1.2 Specifying ecmaVersion
+[`[toc]`](#table-of-contents)
 
 The `parserOptions.ecmaVersion` value is based on the `target` value found in the `tsconfig.json`. A `tsconfig.json` value of `{ "target": "es5" }` is equivalent to `{ "ecmaVersion": 5 }`. Use the table below for additional mappings.
 
 | tsconfig.json `target` | .eslintrc.json `ecmaVersion` |
 | ------ | ----------- |
-| es3 | 3 |
-| es5 | 5 |
-| es6 or ES2015 | 6 or 2015 |
-| ES2016 | 7 or 2016 |
-| ES2017 | 8 or 2017 |
-| ES2018 | 9 or 2018 |
-| ES2019 | 10 or 2019 |
-| ESNext | 10 or 2019 |
+| `es3` | 3 |
+| `es5` | 5 |
+| `es6` or `ES2015` | 6 or 2015 |
+| `ES2016` | 7 or 2016 |
+| `ES2017` | 8 or 2017 |
+| `ES2018` | 9 or 2018 |
+| `ES2019` | 10 or 2019 |
+| `ESNext` | 10 or 2019 |
 
 Take a look at TypeScript's `--lib` [compiler options](https://www.typescriptlang.org/docs/handbook/compiler-options.html) to learn how to include unique library files in the compilation. By setting `target` to either `es5` or `es6`, TypeScript will automatically import a set of libraries (i.e. `{ target: es5 } = { lib: ['DOM', 'ES5', 'ScriptHost']}`).
 
@@ -317,7 +336,7 @@ This configuration turns off the base ESLint rule and enables the typescript-esl
 
 ---
 
-Thank you for reading! If you enjoyed this article follow [@MatterhornDev](https://twitter.com/matterhorndev) on Twitter for notifications on all future posts. This article was written by Ethan Arrowood, share you support on Twitter by following him ([@ArrowoodTech](https://twitter.com/ArrowoodTech)) and [sharing this article](https://twitter.com/intent/tweet?text=Learn%20TypeScript%20Linting%20by%20@ArrowoodTech&url=https://github.com/MatterhornDev/matterhorn-posts/blob/master/learn-typescript-linting-part-1.md&hashtags=typescript,eslint&via=MatterhornDev&related=ArrowoodTech,MatterhornDev). 
+Thank you for reading! If you enjoyed this article follow [@MatterhornDev](https://twitter.com/matterhorndev) on Twitter for notifications on all future posts. This article was written by Ethan Arrowood, share you support on Twitter by following him ([@ArrowoodTech](https://twitter.com/ArrowoodTech)) and [sharing this article](https://twitter.com/intent/tweet?text=Learn%20TypeScript%20Linting%20by%20@ArrowoodTech&url=https://blog.matterhorn.dev/posts/learn-typescript-linting-part-1&hashtags=typescript,eslint&via=MatterhornDev&related=ArrowoodTech,MatterhornDev). 
 
 Special thank you's to Julia Cotter and Colin Hennessey for their help on reviewing and proof reading this article. Find them on GitHub and LinkedIn below!
 - Julia Cotter: [GitHub](https://github.com/juliacotter) [LinkedIn](https://www.linkedin.com/in/julia-cotter/)
