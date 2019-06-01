@@ -1,26 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Header from './../components/Header'
+import Layout from './../components/Layout'
 
 const Template = ({ data }) => {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingTop: '15px'
-    }}>
-      <Header />
+    <Layout>
       <div
         style={{
-          maxWidth: '700px',
-          marginLeft: '10px',
-          marginRight: '10px'
+          gridArea: '2 / 2 / 3 / 3',
         }}
         dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}
       />
-    </div>
+    </Layout>
   )
 }
 

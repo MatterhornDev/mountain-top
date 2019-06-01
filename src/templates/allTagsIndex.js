@@ -7,8 +7,7 @@ const AllTagsTemplate = ({pageContext}) => {
   return (
     <Layout>
       <div style={{
-        margin: 'auto',
-        minWidth: '575px',
+        gridArea: '2 / 2 / 3 / 3',
         display: 'flex',
         flexDirection: 'column'
       }}>

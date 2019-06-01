@@ -1,5 +1,5 @@
 ---
-date: "2019-05-28"
+date: "2019-05-31"
 title: "Learn TypeScript Linting Part 1"
 tags: ['typescript', 'linting', 'eslint']
 excerpt: "Part 1 of the Learn TypeScript Linting series. This post covers TypeScript and ESLint."

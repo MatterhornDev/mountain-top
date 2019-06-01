@@ -20,12 +20,9 @@ const Header = ({ showLogo = true }) => {
         const { title, description } = data.site.siteMetadata
         return (
           <div style={{
-            margin: 'auto',
-            marginBottom: '20px',
-            minWidth: '575px',
+            gridArea: '1 / 2 / 2 / 3',
             display: 'flex',
             flexDirection: 'row',
-            height: '150px'
           }}>
             {showLogo && <img src={Logo} alt='Matterhorn Logo' width={135} height={150}/>}
             <div style={{

@@ -37,8 +37,7 @@ const Posts = () => {
         const { edges } = data.allMarkdownRemark
         return (
           <div style={{
-            margin: 'auto',
-            minWidth: '575px',
+            gridArea: '2 / 2 / 3 / 3',
             display: 'flex',
             flexDirection: 'column'
           }}>

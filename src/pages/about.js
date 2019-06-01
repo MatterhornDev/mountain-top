@@ -5,8 +5,7 @@ const About = () => {
   return (
     <Layout>
       <div style={{
-        margin: 'auto',
-        maxWidth: '700px',
+        gridArea: '2 / 2 / 3 / 3',
         display: 'flex',
         flexDirection: 'column'
       }}>
