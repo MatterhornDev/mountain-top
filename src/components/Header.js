@@ -26,7 +26,7 @@ const Header = ({ showLogo = true }) => {
               <p>
                 {description}
               </p>
-              <hr />
+              <div className='header-break'/>
               <Nav />
             </div>
           </div>
