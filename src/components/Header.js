@@ -19,34 +19,14 @@ const Header = ({ showLogo = true }) => {
       render={data => {
         const { title, description } = data.site.siteMetadata
         return (
-          <div style={{
-            margin: 'auto',
-            marginBottom: '20px',
-            minWidth: '575px',
-            display: 'flex',
-            flexDirection: 'row',
-            height: '150px'
-          }}>
-            {showLogo && <img src={Logo} alt='Matterhorn Logo' width={135} height={150}/>}
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'left',
-              color: '#3F4C6A',
-              marginLeft: '15px'
-            }}>
-              <h1 style={{marginBottom: 0}}>{title}</h1>
-              <p style={{
-                marginTop: 0,
-                marginBottom: '2px',
-                opacity: 0.7
-              }}>
+          <div className='header'>
+            {showLogo && <img src={Logo} alt='Matterhorn Logo' className='logo'/>}
+            <div className='header-content'>
+              <h1>{title}</h1>
+              <p>
                 {description}
               </p>
-              <hr style={{
-                width: '100%',
-                border: '2px solid #3F4C6A'
-              }}/>
+              <div className='header-break'/>
               <Nav />
             </div>
           </div>

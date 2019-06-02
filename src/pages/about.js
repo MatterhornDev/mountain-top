@@ -5,8 +5,7 @@ const About = () => {
   return (
     <Layout>
       <div style={{
-        margin: 'auto',
-        maxWidth: '700px',
+        gridArea: '2 / 2 / 3 / 3',
         display: 'flex',
         flexDirection: 'column'
       }}>
@@ -24,9 +23,16 @@ const About = () => {
             Find the public repository <a href="https://github.com/MatterhornDev/Mountain-Top">here</a>.
             It is built on <a href="https://www.gatsbyjs.org/">Gatsby</a> and is maintained by the incredible Matterhorn Open Source Community.
           </p>
+          <p>The Matterhorn team currently consists of multiple students from <a href="https://wit.edu/">Wentworth Institute of Technology</a>.</p>
+          <p>They are:</p>
+          <ul>
+            <li><a href="https://github.com/Alyssa-Cooper">Alyssa Cooper</a> - <i>Core Developer</i></li>
+            <li><a href="https://www.linkedin.com/in/s-seltenreich">Sophia Seltenreich</a> - <i>Business Management</i></li>
+            <li><a href="https://www.linkedin.com/in/kathesh-handy-36a74814b">Kathesh Handy</a> - <i>Design and Branding</i></li>
+          </ul>
           <p>Contact us at <a href="mailto:contact@matterhorn.dev">contact@matterhorn.dev</a> and find us on Twitter at <a href="https://twitter.com/MatterhornDev">@MatterhornDev</a></p>
           <br />
-          <p>Last Updated on May 28th, 2019</p>
+          <small>Last Updated on June 1st, 2019</small>
         </div>
       </div>
     </Layout>

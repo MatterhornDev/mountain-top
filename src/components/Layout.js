@@ -1,15 +1,13 @@
 import React from 'react'
 import Header from './Header'
+import { Helmet } from "react-helmet"
 
 const Layout = ({ headerProps, children }) => {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingTop: '15px'
-    }}>
+    <div className='layout'>
+      <Helmet>
+        <title>Mountain Top</title>
+      </Helmet>
       <Header {...headerProps} />
       {children}
     </div>

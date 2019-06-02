@@ -1,9 +1,9 @@
 ---
-date: "2019-05-28"
+date: "2019-06-01"
 title: "Learn TypeScript Linting Part 2"
 tags: ['typescript', 'linting', 'eslint', 'prettier', 'standard']
 excerpt: "Part 2 of the Learn TypeScript Linting series. This post covers Prettier and Standard formatter configuration."
-featuredImage: "./deer.jpg"
+featuredImage: ""
 ---
 
 # Learn TypeScript Linting Part 2
