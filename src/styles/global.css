@@ -43,17 +43,11 @@ body {
   border: 2px solid var(--theme-blue);
 }
 
-/* .header-content > h1 {
-  margin-bottom: 0;
-}
-
-.header-content > p {
-  margin-top: 0;
-  margin-bottom: 2px;
-  opacity: 0.7;
-} */
-
 /* Post Styles */
+
+.post {
+  grid-area: 2 / 2 / 3 / 3;
+}
 
 .posts {
   grid-area: 2 / 2 / 3 / 3;
@@ -87,6 +81,51 @@ body {
 .post-content > h2 {
   margin: 3px 0 0 0;
   color: var(--theme-blue);
+}
+
+/* Tags Styles */
+.tags-container, .single-tag-container {
+  grid-area: 2 / 2 / 3 / 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.tags-list {
+  list-style: none;
+}
+
+.tags-list-item {
+  margin: 0 0 20px 0;
+}
+
+.tags-list-item > a {
+  font-size: 1.5rem;
+  color: var(--theme-blue);
+}
+
+.tags-list-item > p {
+  margin: 2px 0 0 10px;
+  color: var(--theme-pink);
+}
+
+.single-tag-container {
+  align-items: left;
+}
+
+.single-tag-container > h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: var(--theme-blue);
+}
+
+.single-tag-container > p {
+  margin: 2px 0 0 0;
+  color: var(--theme-blue);
+}
+
+.single-tag-container > .posts {
+  margin-top: 20px;
 }
 
 /* Nav Styles */

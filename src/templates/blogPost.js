@@ -6,9 +6,7 @@ const Template = ({ data }) => {
   return (
     <Layout>
       <div
-        style={{
-          gridArea: '2 / 2 / 3 / 3',
-        }}
+        className='post'
         dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}
       />
     </Layout>

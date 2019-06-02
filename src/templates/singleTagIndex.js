@@ -8,21 +8,9 @@ const SingleTagTemplate = ({data, pageContext}) => {
 
   return (
     <Layout>
-      <div style={{
-        gridArea: '2 / 2 / 3 / 3'
-      }}>
-        <div style={{
-          marginBottom: '20px'
-        }}>
-          <h2 style={{
-            marginBottom: '5px',
-            color: '#3F4C6A',
-          }}>{tag}</h2>
-          <p style={{
-            marginTop: '2px',
-            color: '#3F4C6A'
-          }}>{tagDescription}</p>
-        </div>
+      <div className='single-tag-container'>
+        <h2>{tag}</h2>
+        <p>{tagDescription}</p>
         <Posts />
       </div>
     </Layout>
