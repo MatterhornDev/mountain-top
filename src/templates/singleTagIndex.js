@@ -29,6 +29,18 @@ const SingleTagTemplate = ({data, pageContext}) => {
   )
 }
 
+/*
+This is the old featuredImage query. Currently disabled
+frontmatter {
+  featuredImage {
+    childImageSharp{
+      fixed(width: 125, height: 125) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+}
+*/
 export const query = graphql`
   query($tag: String!) {
     allMarkdownRemark (
@@ -44,13 +56,6 @@ export const query = graphql`
             title
             date
             excerpt
-            featuredImage {
-              childImageSharp{
-                fixed(width: 125, height: 125) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
           }
         }
       }

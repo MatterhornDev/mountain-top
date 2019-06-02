@@ -7,7 +7,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Mountain Top',
-    description: 'The official blog for the Matterhorn TypeScript developer ecosystem',
+    description: 'A blog for the TypeScript developer ecosystem',
     tags: {
       'typescript': 'A lot of things are tagged this. Learn more about Matterhorn\'s favorite topic', 
       'linting': 'Its not all about formatting! Linting can help you write better code too.',
@@ -61,6 +61,18 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Mountain Top`,
+        short_name: `Mountain Top`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#3F4C6A`,
+        display: `standalone`,
+        icon: `src/images/icon.png`
+      },
+    },
   ]
 }

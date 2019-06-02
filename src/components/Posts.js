@@ -3,6 +3,18 @@ import { StaticQuery, graphql } from 'gatsby'
 // import GatsbyImage from 'gatsby-image'
 import { navigate } from '@reach/router'
 
+/*
+This is the old featuredImage query. Currently disabled
+frontmatter {
+  featuredImage {
+    childImageSharp{
+      fixed(width: 125, height: 125) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+}
+*/
 const Posts = () => {
   return (
     <StaticQuery
@@ -20,13 +32,6 @@ const Posts = () => {
                   title
                   date
                   excerpt
-                  featuredImage {
-                    childImageSharp{
-                      fixed(width: 125, height: 125) {
-                        ...GatsbyImageSharpFixed
-                      }
-                    }
-                  }
                 }
               }
             }
