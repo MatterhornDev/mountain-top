@@ -131,12 +131,9 @@ body {
 }
 
 /* Nav Styles */
-.nav-container {
-  position: relative;
-}
+/* .nav-container { } */
 
 .nav-list {
-  position: absolute;
   list-style-type: none;
   margin: 0;
   padding: 0;
