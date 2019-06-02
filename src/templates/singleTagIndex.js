@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Posts from '../components/Posts';
+import {_Posts} from '../components/Posts';
 
 const SingleTagTemplate = ({data, pageContext}) => {
   const {tag, tagDescription} = pageContext
@@ -11,7 +11,7 @@ const SingleTagTemplate = ({data, pageContext}) => {
       <div className='single-tag-container'>
         <h2>{tag}</h2>
         <p>{tagDescription}</p>
-        <Posts />
+        <_Posts data={data}/>
       </div>
     </Layout>
   )
