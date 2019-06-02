@@ -13,7 +13,10 @@ module.exports = {
       'linting': 'Its not all about formatting! Linting can help you write better code too.',
       'eslint': 'The official TypeScript linter.', 
       'prettier': 'This one is all about making formatting effortless as possible.',
-      'standard': 'Enough arguing over semicolons or not. Let Standard decide for you.'
+      'standard': 'Enough arguing over semicolons or not. Let Standard decide for you.',
+      'entrepreneurship': 'What is your favorite episode of Silicon Valley?',
+      'innovation': 'Creating new things that are solving real problems.',
+      'pitching': 'Have you ever been on Shark Tank before? Neither have we.'
     }
   },
   plugins: [
