@@ -19,6 +19,7 @@ module.exports = {
       'innovation': 'Creating new things that are solving real problems.',
       'pitching': 'Have you ever been on Shark Tank before? Neither have we.'
     },
+    url: 'https://blog.matterhorn.dev',
     twitterUsername: "@MatterhornDev",
     image: "/images/icon.png"
   },
