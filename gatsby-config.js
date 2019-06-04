@@ -7,6 +7,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Mountain Top',
+    titleTemplate: 'Mountain Top - %s',
     description: 'A blog for the TypeScript developer ecosystem',
     tags: {
       'typescript': 'A lot of things are tagged this. Learn more about Matterhorn\'s favorite topic', 
@@ -17,7 +18,9 @@ module.exports = {
       'entrepreneurship': 'What is your favorite episode of Silicon Valley?',
       'innovation': 'Creating new things that are solving real problems.',
       'pitching': 'Have you ever been on Shark Tank before? Neither have we.'
-    }
+    },
+    twitterUsername: "@MatterhornDev",
+    image: "/images/icon.png"
   },
   plugins: [
     `gatsby-plugin-sharp`,

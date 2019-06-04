@@ -1,13 +1,11 @@
 import React from 'react'
 import Header from './Header'
-import { Helmet } from "react-helmet"
+import SEO from './SEO'
 
 const Layout = ({ headerProps, children }) => {
   return (
     <div className='layout'>
-      <Helmet>
-        <title>Mountain Top</title>
-      </Helmet>
+      <SEO/>
       <Header {...headerProps} />
       {children}
     </div>
