@@ -227,6 +227,7 @@ Run `npm run lint` and see how the linter now errors on all the semicolons added
 [`[toc]`](#table-of-contents)
 
 - [Learn TypeScript Linting post repository](https://github.com/MatterhornDev/matterhorn-posts/): This post is open sourced! Check it out at the link and open issues/pull requests if you'd like to contribute to it.
+- [eslint-config-standard](https://github.com/standard/eslint-config-standard): The ESLint configurtion for integrating the JavaScript Standard Style formatter.
 - [Prettier documentation](https://prettier.io/docs/en/index.html): Prettier code formatter documentation. Relevant sections of the documentation listed below.
   - [Integrating with Linters](https://prettier.io/docs/en/integrating-with-linters.html)
   - [Prettier vs. Linters](https://prettier.io/docs/en/comparison.html)

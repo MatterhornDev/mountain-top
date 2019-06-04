@@ -21,8 +21,8 @@ This guide will show you how to set up [ESLint](https://eslint.org/) with a [Typ
 - [2 Adding ESLint](#2-adding-eslint)
   - [2.1 Initializing .eslintrc](#21-initializing-eslintrc)
     - [2.1.1 Specifying environments](#211-specifying-environments)
-    - [2.1.2 Specifying ecmaVersion](#212-specifying-ecmaVersion)
-  - [2.2 Creating ESLint npm script](#22-Creating-ESLint-npm-script)
+    - [2.1.2 Specifying ecmaVersion](#212-specifying-ecmaversion)
+  - [2.2 Creating ESLint npm script](#22-creating-eslint-npm-script)
   - [2.3 Executing ESLint](#23-executing-eslint)
   - [2.4 Fixing an ESLint warning](#24-fixing-an-eslint-warning)
   - [2.5 Configuring ESLint](#25-configuring-eslint)
@@ -332,7 +332,6 @@ This configuration turns off the base ESLint rule and enables the typescript-esl
 - [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint): Monorepo for all the tooling which enables ESLint to support TypeScript.
   - [typesciprt-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/parser)
   - [typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin)
-- [eslint-config-standard](https://github.com/standard/eslint-config-standard): The ESLint configurtion for integrating the JavaScript Standard Style formatter.
 
 ---
 
