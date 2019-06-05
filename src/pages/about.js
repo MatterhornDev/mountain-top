@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 
 const About = () => {
   return (
-    <Layout>
+    <Layout seoProps={{ title: 'About' }}>
       <div style={{
         gridArea: '2 / 2 / 3 / 3',
         display: 'flex',
