@@ -7,7 +7,7 @@ const SingleTagTemplate = ({data, pageContext}) => {
   const {tag, tagDescription} = pageContext
 
   return (
-    <Layout>
+    <Layout seoProps={{ title: tag }}>
       <div className='single-tag-container'>
         <h2>{tag}</h2>
         <p>{tagDescription}</p>

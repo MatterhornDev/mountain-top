@@ -4,7 +4,7 @@ import Layout from './../components/Layout'
 
 const Template = ({ data }) => {
   return (
-    <Layout>
+    <Layout seoProps={{ title: data.markdownRemark.frontmatter.title }}>
       <div
         className='post'
         dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}

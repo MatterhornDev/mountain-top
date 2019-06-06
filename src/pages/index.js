@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 
 const App = () => {
   return (
-    <Layout>
+    <Layout seoProps={{ title: 'Home' }}>
       <Posts />
     </Layout>
   )

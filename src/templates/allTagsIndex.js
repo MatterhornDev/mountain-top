@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 const AllTagsTemplate = ({pageContext}) => {
   const { tags, tagDescriptions } = pageContext
   return (
-    <Layout>
+    <Layout seoProps={{ title: 'Tags' }}>
       <div className='tags-container'>
         <ul className='tags-list'>
           {tags.map((tag, index) => {
