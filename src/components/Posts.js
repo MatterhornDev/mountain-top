@@ -1,7 +1,8 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 // import GatsbyImage from 'gatsby-image'
 import { navigate } from '@reach/router'
+import VisuallyHidden from "@reach/visually-hidden"
 
 export const _Posts = ({data}) => {
   const { edges } = data.allMarkdownRemark
@@ -24,6 +25,9 @@ export const _Posts = ({data}) => {
               <div className='post-content'>
                 <h2>{frontmatter.title}</h2>
                 <p>{frontmatter.excerpt}</p>
+                <VisuallyHidden>
+                  <Link to={`${fields.slug}`}/>
+                </VisuallyHidden>
               </div>
             </div>
           </React.Fragment>
