@@ -84,6 +84,10 @@ body {
   color: var(--theme-blue);
 }
 
+.post-content > a > h2 {
+  margin: 0;
+}
+
 /* Tags Styles */
 .tags-container, .single-tag-container {
   grid-area: 2 / 2 / 3 / 3;
