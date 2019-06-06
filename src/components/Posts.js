@@ -1,7 +1,6 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 // import GatsbyImage from 'gatsby-image'
-import { navigate } from '@reach/router'
 
 export const _Posts = ({data}) => {
   const { edges } = data.allMarkdownRemark
@@ -15,14 +14,13 @@ export const _Posts = ({data}) => {
             <div
               className='post-container'
               key={fields.slug}
-              onClick={() => {
-                navigate(`${fields.slug}`)
-              }}
             >
               {/* Disabled for now; also disabled in styles. 
                 <GatsbyImage fixed={frontmatter.featuredImage.childImageSharp.fixed} /> */}
               <div className='post-content'>
-                <h2>{frontmatter.title}</h2>
+                <Link to={fields.slug}>
+                  <h2>{frontmatter.title}</h2>
+                </Link>
                 <p>{frontmatter.excerpt}</p>
               </div>
             </div>
