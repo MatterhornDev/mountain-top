@@ -298,7 +298,7 @@ My preference is _sans_ semicolons, so I'll be modifying my `.eslintrc.json` fil
 ### 2.7 Fixing unused variable definition error from type import
 [`[toc]`](#table-of-contents)
 
-This final section covers a common problem case when linting TypeScript with ESLint. If you __do not__ specify `plugin:@typescript-eslint/recommended` in the `.eslintrc.json` configuration `"extends"` list, then a troubling error will be returned from the `learn-typescript-linting` project. Modify the code by removing the second value in the `"extends"` list, or checkout the `learn-typescript-linting/unused-variable` branch to see the error.
+This final section covers a common problem case when linting TypeScript with ESLint. If you __do not__ specify `plugin:@typescript-eslint/recommended` and `plugin:@typescript-eslint/eslint-recommended` in the `.eslintrc.json` configuration `"extends"` list, then a troubling error will be returned from the `learn-typescript-linting` project. Modify the code by removing the second and third value in the `"extends"` list, or checkout the `learn-typescript-linting/unused-variable` branch to see the error.
 
 ```bash
 /learn-typescript-linting/src/bar.ts
@@ -318,7 +318,7 @@ To fix the above `no-unused-vars` error, set two rule configurations.
 
 ```diff
 {
-- "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"]
+- "extends": ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"]
 + "extends": ["eslint:recommended"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
