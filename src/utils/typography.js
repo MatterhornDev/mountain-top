@@ -12,11 +12,6 @@ githubTheme.overrideThemeStyles = () => ({
   },
   'h1,h2': {
     borderBottom: 'none'
-  },
-  'hr': {
-    background: 'none',
-    marginBottom: 0,
-    height: 0
   }
 })
 

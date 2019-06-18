@@ -20,8 +20,8 @@ This guide will show you how to set up [ESLint](https://eslint.org/) with a [Typ
 - [1 Getting Started](#1-getting-started)
 - [2 Adding ESLint](#2-adding-eslint)
   - [2.1 Initializing .eslintrc](#21-initializing-eslintrc)
-    - [2.1.1 Specifying environments](#211-specifying-environments)
-    - [2.1.2 Specifying ecmaVersion](#212-specifying-ecmaversion)
+      - [2.1.1 Specifying environments](#211-specifying-environments)
+      - [2.1.2 Specifying ecmaVersion](#212-specifying-ecmaversion)
   - [2.2 Creating ESLint npm script](#22-creating-eslint-npm-script)
   - [2.3 Executing ESLint](#23-executing-eslint)
   - [2.4 Fixing an ESLint warning](#24-fixing-an-eslint-warning)
@@ -96,17 +96,31 @@ Add the following to `.eslintrc.json`
 
 ```json
 {
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "env": { "node": true },
   "parserOptions": {
     "ecmaVersion": 5,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
   "rules": {}
 }
 ```
+
+Each of these initial configuration properties are important. Sections [2.1.1](#211-specifying-environments) and [2.1.2](#212-specifying-ecmaversion) will explain the `env` and `parserOptions` properties. Section [2.5](#25-configuring-eslint) demonstrates how to use the `rules` property. For the remaining properties:
+
+- `extends`: A list of default rule configurations
+  - `eslint:recommended` is standard for ESLint
+  - `plugin:@typescript-eslint/eslint-recommended` updates the eslint:recommended config to better suit Typescript
+  - `plugin:@typescript-eslint/recommended` is a set of opinionated rules that adhere to TypeScript best practices
+- `parser`: A parser that produces an AST for the TypeScript source code. Read more about why this is important in section [2.7](#27-fixing-unused-variable-definition-error-from-type-import)
+- `plugins`: A list of plugins that add or extend rules with TypeScript-specific features.
 
 #### 2.1.1 Specifying environments
 [`[toc]`](#table-of-contents)
@@ -340,3 +354,13 @@ Thank you for reading! If you enjoyed this article follow [@MatterhornDev](https
 Special thank you's to Julia Cotter and Colin Hennessey for their help on reviewing and proof reading this article. Find them on GitHub and LinkedIn below!
 - Julia Cotter: [GitHub](https://github.com/juliacotter) [LinkedIn](https://www.linkedin.com/in/julia-cotter/)
 - Colin Hennessey: [GitHub](https://github.com/colinhennessey) [LinkedIn](https://www.linkedin.com/in/colin-hennessey-140625180/)
+
+---
+
+<small>Last Updated on: June 18th, 2019</small>
+
+Changelog:
+  - 06/18/19:
+    - Expanded section 2.1 to include `plugin:@typescript-eslint/eslint-recommended` rule set and `"project": "./tsconfig.json"` property.
+    - Fix table of contents indentation.
+    - Fix linebreak styling.
