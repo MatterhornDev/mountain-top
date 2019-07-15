@@ -17,7 +17,8 @@ module.exports = {
       'standard': 'Enough arguing over semicolons or not. Let Standard decide for you.',
       'entrepreneurship': 'What is your favorite episode of Silicon Valley?',
       'innovation': 'Creating new things that are solving real problems.',
-      'pitching': 'Have you ever been on Shark Tank before? Neither have we.'
+      'pitching': 'Have you ever been on Shark Tank before? Neither have we.',
+      'git': 'The Matterhorn team\'s favorite version control software.'
     },
     url: 'https://blog.matterhorn.dev',
     twitterUsername: "@MatterhornDev",

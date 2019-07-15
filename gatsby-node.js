@@ -55,7 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
       site {
         siteMetadata {
           tags {
-            typescript, linting, eslint, prettier, standard, entrepreneurship, innovation, pitching
+            typescript, linting, eslint, prettier, standard, entrepreneurship, innovation, pitching, git
           }
         }
       }
